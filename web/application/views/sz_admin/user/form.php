@@ -1,0 +1,37 @@
+<?php $data['flag']=1;$this->load->view_part($this->_site_path."/main/breadcrumb",$data);?>
+<!--  添加信息页面-->
+<div  >
+    <?php get_messagebox();// 获取提示框 ?>
+
+    <!--  添加-->
+    <div class="box box-radius">
+        <form method="post">
+            <!-- 必填项-->
+
+            <table border="0" cellspacing="0" cellpadding="0" class="addinfo_table">
+                <?php foreach ($this->$modelname->form_array as $k => $v): ?>
+                <tr>
+                    <td width="10%" class="tdbg"><label><?php echo $v ?></label></td>
+                    <td width="84%"><input type="text" name="<?php echo $k ?>" id="<?php echo $k ?>" placeholder="" class="x_inpt_border" value="<?php echo isset( $user_data[$k] ) ? $user_data[$k] : '' ; ?>"><span class="span">*</span></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+
+            <!--选填项-->
+
+
+            <div class="control_group btn_group">
+                <label class="control_label" for="body"></label>
+                <div class="controls">
+                    <button type="submit" class="btn btn_style1"><span>提交</span></button>
+                    <button type="reset" class="btn btn_style1"><span>重置</span></button>
+                </div>
+            </div>
+            <input type="hidden" name="is_submit" value="1">
+        </form>  
+        <div class="float_clear"></div>
+
+    </div>          
+
+    </div>
+</div>
